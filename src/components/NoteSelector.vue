@@ -1,5 +1,5 @@
 <template>
-  <div class="note-selector">
+  <div class="note-selector" v-bind:class="{active: note === selectedNote}">
     <p class="note-selector-title">{{ note.body | formatTitle }}</p>
     <p class="note-selector-timestamp">{{ note.timestamp | formatTimestamp }}</p>
   </div>
@@ -8,6 +8,7 @@
 <script>
 export default {
   name: 'note-selector',
+  props: ['note', 'selectedNote'],
   filters: {
     formatTitle: function(body) {
       var maxLength = 20;
@@ -22,8 +23,7 @@ export default {
     formatTimestamp: function(timestamp) {
       return new Date(timestamp).toUTCString();
     }
-  },
-  props: ['note']
+  }
 };
 </script>
 

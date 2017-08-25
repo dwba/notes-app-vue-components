@@ -5,6 +5,10 @@ import App from './App'
 
 Vue.config.productionTip = false
 
+Vue.filter('formatTimestamp', function(timestamp) {
+  return new Date(timestamp).toUTCString();
+});
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
