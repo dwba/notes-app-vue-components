@@ -1,6 +1,6 @@
 <template>
   <div class="note-container">
-    <note-selectors v-bind:notes="notes" v-bind:selectedNote="selectedNote" v-on:selectNote="selectNote"></note-selectors>
+    <note-selectors v-bind:notes="notes" v-bind:transformedNotes="transformedNotes" v-bind:selectedNote="selectedNote" v-on:selectNote="selectNote"></note-selectors>
     <note-editor v-bind:selectedNote="selectedNote" v-on:inputNoteEditor="inputNoteEditor"></note-editor>
   </div>
 </template>
@@ -11,7 +11,7 @@ import NoteEditor from './NoteEditor';
 
 export default {
   name: 'note-container',
-  props: ['notes', 'selectedNote'],
+  props: ['notes', 'transformedNotes', 'selectedNote'],
   methods: {
     selectNote: function(note) {
       this.$emit('selectNote', note);
